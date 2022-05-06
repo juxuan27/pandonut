@@ -2,9 +2,9 @@
 
 Hey～你好！“盘盘圈”（Pandonut）是由来自宁波 UFO 的 ```miao2```，来自同济 TJUF 极限飞盘队的```经林```、```juju```、```美惠```、```黑黑```，和来自华南理工大学的```桂宇```共同运营的独立极限飞盘内容平台。
 
-<center class="half">
+<div align=center>
     <img src="./assets/img/frisbee_logo.svg" width="200"/>
-</center>
+</div>
 
 —— 我们经常会被问到 “*你们是什么机构？*”
 
@@ -18,9 +18,9 @@ Hey～你好！“盘盘圈”（Pandonut）是由来自宁波 UFO 的 ```miao2`
 我们希望 ta 能帮助所有对飞盘感兴趣的人用最低的信息成本参与到飞盘运动中来，也希望居住地发生变化的盘友，能快速找到本地组织，重建生活的秩序。
 
 
-<center class="half">
+<div align=center>
     <img src="./assets/img/frisbee_logo_head.png" width="200"/>
-</center>
+</div>
 
 我们目前收集了```359```个由中国飞盘爱好者组成的海内外飞盘组织，包括```学校队伍```、```混合/公开队伍```、```女子队伍```、```青训队伍```。
 
@@ -50,17 +50,17 @@ Hey～你好！“盘盘圈”（Pandonut）是由来自宁波 UFO 的 ```miao2`
 
 我们需要一定资金购买服务器和域名，如果我们帮到了您，可以考虑为我们捐一笔小小的资金 ⬇
 
-<center class="half">
+<div align=center>
     <img src="./assets/img/支付宝二维码.jpg" width="150"/><img src="./assets/img/微信二维码.jpg" width="166"/>
-</center>
+</div>
 
 ## 关于我们
 
 欢迎前往微信搜索公众号 “盘盘圈”，我们会持续更新优质内容
 
-<center class="half">
-    <img src="./assets/img/盘盘圈.jpg" width="120"/>  <img src="./assets/img/盘圈小电小助手.jpg" width="200"/>
-</center>
+<div align=center>
+    <img src="./assets/img/盘盘圈.jpg" width="120"/><img src="./assets/img/盘圈小电小助手.jpg" width="200"/>
+</div>
 
 
 “盘盘圈” 有三个正在进行的中等项目和几个正在进行的小项目：

@@ -48,7 +48,7 @@ Hey～你好！“盘盘圈”（Pandonut）是由来自宁波 UFO 的 ```miao2`
 
 ## 支持我们
 
-我们需要一定资金购买服务器和域名，如果我们帮到了您，可以考虑为我们捐一笔小小的资金 ⬇
+我们需要一定资金购买服务器和域名，如果我们帮到了您，可以考虑为我们捐一笔小小的资金 ⬇ 或者帮我们点一个 Star 🌟
 
 <div align=center>
     <img src="./assets/img/支付宝二维码.jpg" width="150"/><img src="./assets/img/微信二维码.jpeg" width="166"/>

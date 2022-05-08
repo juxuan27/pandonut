@@ -667,3 +667,4 @@ Dash is running on http://0.0.0.0:8050/
 180.163.220.4 - - [08/May/2022 19:21:23] "GET /assets/img/loading.png HTTP/1.1" 200 -
 180.163.220.68 - - [08/May/2022 19:21:23] "POST /_dash-update-component HTTP/1.1" 200 -
 180.163.220.67 - - [08/May/2022 19:21:24] "GET /_favicon.ico?v=2.3.1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/May/2022 19:25:51] "GET /solr/admin/info/system?wt=json HTTP/1.0" 200 -

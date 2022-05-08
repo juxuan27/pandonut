@@ -34,6 +34,13 @@ def make_header() -> html.Header:
                             
                             dcc.Tab(
                                 label=strings.TAB2_NAME,
+                                value="tab-add-info",
+                                className="dash-tab",
+                                selected_className="dash-tab-selected",
+                            ),
+
+                            dcc.Tab(
+                                label=strings.TAB3_NAME,
                                 value="tab-about-us",
                                 className="dash-tab",
                                 selected_className="dash-tab-selected",

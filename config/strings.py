@@ -2,8 +2,8 @@ APP_NAME = "盘盘圈——飞盘地图"
 ALL = "全部"
 
 TAB1_NAME = "飞盘地图"
-TAB2_NAME = "关于我们"
-TAB3_NAME = ""
+TAB2_NAME = "信息添加"
+TAB3_NAME = "关于我们"
 
 INITIAL_PROVINCE = ALL
 INITIAL_CITY = ALL
@@ -22,6 +22,7 @@ MAP_POPUP_SCALE="队伍规模 : "
 MAP_POPUP_FEE="队伍费用 : "
 
 SCHOOL_FRISBEE_DATA_PATH="./data/frisbee.csv"
+SCHOOL_FRISBEE_ADD_DATA_PATH="./data/frisbee_addinfo.csv"
 
 LABEL_CITY="城市"
 LABEL_PROVINCE="省份"

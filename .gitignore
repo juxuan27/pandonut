@@ -7,5 +7,6 @@
 
 # generated HTML file
 /data/index.html
+/data/frisbee_addinfo.csv
 .vscode
 *__pycache__

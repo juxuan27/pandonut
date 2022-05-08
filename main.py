@@ -1,15 +1,17 @@
+import feffery_antd_components as fac
 import dash
 from dash import dcc
 from dash import html
 import pandas as pd
 from app.ui import (
     header,
-    tap_frisbeemap_controls
+    tab_frisbeemap,
+    add_information
 )
-from app import helpers,tab_frisbeemap
+from app import helpers
 from config import strings
-from dash.dependencies import Input, Output
-from gevent import pywsgi
+from dash.dependencies import Input, Output, State
+import csv
 
 
 # FRISBEE DATASET
@@ -72,7 +74,7 @@ def render_tab(tab):
                 id="tab-frisbee-map-container",
                 className="tab-frisbee-map-container",
                 children=[
-                    tap_frisbeemap_controls.make_tab_frisbee_map_controls(
+                    tab_frisbeemap.make_tab_frisbee_map_controls(
                         city_arr = dpd_options_city_list,
                         province_arr = dpd_options_province,
                         province_val = curr_province,
@@ -80,6 +82,17 @@ def render_tab(tab):
                         type_val=curr_type
                     )
                 ],
+            )
+        ]
+    elif tab == "tab-add-info":
+        return [
+            html.Div(
+                id="add-info-container",
+                className="add-info-container",
+                children=[
+                    add_information.make_add_info_table()
+
+                ]
             )
         ]
     elif tab == "tab-about-us":
@@ -104,6 +117,7 @@ def render_tab(tab):
                 
             )
         ]
+    
 
 
 # MAP RENDERER (TAB 1)
@@ -134,7 +148,7 @@ def update_port_map_tab(province,city,type):
 
     return html.Div(
         children=[
-            tap_frisbeemap_controls.make_tab_frisbee_map_controls(
+            tab_frisbeemap.make_tab_frisbee_map_controls(
                 city_arr=dpd_options_city_list,
                 city_val=curr_city,
                 province_arr=dpd_options_province,
@@ -150,6 +164,109 @@ def update_port_map_tab(province,city,type):
             ),
         ]
     )
+
+
+
+@app.callback(
+    [
+     Output('show-info', 'children'),  
+     Output('form-item-usr-name', 'validateStatus'),  
+     Output('form-item-usr-contact', 'validateStatus'),  
+     Output('form-item-name', 'validateStatus'),  
+     Output('form-item-type', 'validateStatus'),  
+    #  Output('form-item-time', 'validateStatus'),  
+     Output('form-item-contact', 'validateStatus'),  
+     Output('form-item-address', 'validateStatus'),  
+     Output('form-item-compete', 'validateStatus'),  
+    #  Output('form-item-coach', 'validateStatus'),  
+    #  Output('form-item-scale', 'validateStatus'),  
+    #  Output('form-item-fee', 'validateStatus'),  
+     Output('form-item-usr-name', 'help'),  
+     Output('form-item-usr-contact', 'help'),  
+     Output('form-item-name', 'help'),  
+     Output('form-item-type', 'help'),  
+    #  Output('form-item-time', 'help'),  
+     Output('form-item-contact', 'help'),  
+     Output('form-item-address', 'help'),  
+     Output('form-item-compete', 'help'),  
+    #  Output('form-item-coach', 'help'),  
+    #  Output('form-item-scale', 'help'),  
+    #  Output('form-item-fee', 'help')
+     ],  
+    Input('form-submit', 'nClicks'),
+    [State('form-usr-name', 'value'),
+     State('form-usr-contact', 'value'),
+     State('form-name','value'),
+     State('form-type','value'),
+     State('form-time','value'),
+     State('form-contact','value'),
+     State('form-address','value'),
+     State('form-compete','value'),
+     State('form-coach','value'),
+     State('form-scale','value'),
+     State('form-fee','value'),
+     State('form-other','value'),
+     ], 
+    prevent_initial_call=True
+)
+def form_demo_2_callback(nClicks, username, usrcontact,name,type,time,contact,address,compete,coach,scale,fee,other):
+    if username and usrcontact and name and type and contact and address and compete:
+        with open(strings.SCHOOL_FRISBEE_ADD_DATA_PATH,"a",newline="") as csvfile: 
+            writer = csv.writer(csvfile)
+            writer.writerow([username, usrcontact,name,type,time,contact,address,compete,coach,scale,fee,other])
+        return [
+            fac.AntdAlert( 
+                message='信息成功提交！我们会尽快将其更新在地图上，感谢您的填写！',
+                type='success',
+                showIcon=True,
+                messageRenderMode='marquee',
+                style={
+                    'marginBottom': '10px'
+                },
+                closable=True,
+            ),     
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+            None ,
+        ]
+
+    return [
+        fac.AntdAlert(  # 警告提示
+            message='信息填写有误！请检查后进行提交！',
+            type='error',
+            showIcon=True,
+            messageRenderMode='marquee',
+            style={
+                'marginBottom': '10px'
+            }
+        ),
+        None if username else 'error',
+        None if usrcontact else 'error',
+        None if name else 'error',
+        None if type else 'error',
+        None if contact else 'error',
+        None if address else 'error',
+        None if compete else 'error',
+        None if username else '不能为空！',
+        None if usrcontact else '不能为空！',
+        None if name else '不能为空！',
+        None if type else '不能为空！',
+        None if contact else '不能为空！',
+        None if address else '不能为空！',
+        None if compete else '不能为空！'
+    ]
+
 
 
 

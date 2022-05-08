@@ -734,7 +734,6 @@ table tbody tr:first-child {
 }
 
 .about-us-inner #text1{
-    text-transform: uppercase;
     color: #FFFFFF;
     font-family: 'Microsoft YaHei';
     letter-spacing: 0.1rem;
@@ -761,4 +760,53 @@ table tbody tr:first-child {
     font-size: 1em;
     line-height: 1.75;
     font-weight: 400;
+}
+
+.add-infor-container{
+    padding: 2rem 6rem;
+    vertical-align: top;
+    position: relative;
+    max-width: 100%;
+    border-radius: inherit;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.add-infor-container #add-info-title{
+    color: #cfcfcf;
+    text-align: center;
+    font-family: 'Microsoft YaHei';
+    letter-spacing: 0.025rem;
+    width: calc(100% + 0.025rem);
+    font-size: 1.5em;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.add-infor-container #add-info-explain{
+    color: #cfcfcf;
+    font-family: 'Microsoft YaHei';
+    font-size: 1em;
+    line-height: 1.75;
+    font-weight: 400;
+    padding-bottom: 2em;
+}
+.add-infor-container #add-info-head{
+    padding-top: 1em;
+    color: #b5b5c5;
+    font-family: 'Microsoft YaHei';
+    font-size: 1em;
+    line-height: 1.75;
+    font-weight: 400;
+}
+
+.add-info-form-container{
+    background: #e6e6e6;
+    border-radius:30px;
+    margin: 10px;
+}
+.add-info-form{
+    width:inherit;
+    padding: 30px;
+    padding-top: 50px;
 }

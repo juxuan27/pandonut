@@ -70,7 +70,7 @@ Hey～你好！“盘盘圈”（Pandonut）是由来自，来自同济 TJUF 极
 欢迎前往微信搜索关注公众号 “盘盘圈”，我们会持续更新优质的飞盘内容。
 
 <div align=center>
-    <img src="./assets/img/盘盘圈.jpg" width="120"/><img src="./assets/img/盘圈小电小助手.jpeg" width="200"/>
+    <img src="./assets/img/盘盘圈.jpg" width="120"/><img src="./assets/img/盘圈小电小助手.jpg" width="200"/>
 </div>
 
 

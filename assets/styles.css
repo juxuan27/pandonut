@@ -7,7 +7,7 @@
     top: calc(50% + 30px);
     transform: translate(-50%, -50%);
     height: 80px;
-    width: 80px;
+    width: 200px;
     background-image: url("../img/loading.png");
     background-repeat: no-repeat;
     background-size: contain
@@ -720,11 +720,11 @@ table tbody tr:first-child {
     margin: 0;
     padding: 0;
     border: 0;
-    text-align: center;
+    
 }
 
 .about-us-inner{
-    padding: 2rem 6rem;
+    padding: 2rem 3rem;
     vertical-align: top;
     position: relative;
     max-width: 100%;
@@ -738,28 +738,32 @@ table tbody tr:first-child {
     font-family: 'Microsoft YaHei';
     letter-spacing: 0.1rem;
     max-width: 100%;
-    font-size: 1.2em;
+    font-size: 1.5em;
     line-height: 1.625;
     font-weight: 600;
+    text-align: center;
 }
 
 .about-us-inner #text2{
-    color: #7B7B8F;
+    color: #c8c8c8;
     font-family: 'Microsoft YaHei';
     letter-spacing: 0.025rem;
     width: calc(100% + 0.025rem);
-    font-size: 3em;
+    font-size: 1.2em;
     line-height: 1.25;
     font-weight: 700;
+    text-align: center;
+    padding-top: 0.9em;
 }
 
 
 .about-us-inner #text3{
-    color: #7B7B8F;
+    color: #c8c8c8;
     font-family: 'Microsoft YaHei';
     font-size: 1em;
     line-height: 1.75;
     font-weight: 400;
+    padding: 0.2em;
 }
 
 .add-infor-container{

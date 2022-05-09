@@ -64,14 +64,8 @@ def generate_map_legend() -> MacroElement:
 
     <div class='legend-scale'>
       <ul class='legend-labels'>
-        <li><span style='background:#E87272;'></span>Unspecified</li>
-        <li><span style='background:#7a0091;'></span>Navigation</li>
-        <li><span style='background:#11498A;'></span>Fishing</li>
-        <li><span style='background:#1A6D9B;'></span>Tug</li>
-        <li><span style='background:#12A5B0;'></span>Passenger</li>
-        <li><span style='background:#3A9971;'></span>Cargo</li>
-        <li><span style='background:#79BD00;'></span>Tanker</li>
-        <li><span style='background:#DBB657;'></span>Pleasure</li>
+        <li><span style='background:#C35CB4;'></span>竞技队伍</li>
+        <li><span style='background:#58A8D7;'></span>非竞技队伍</li>
       </ul>
     </div>
     </div>
@@ -136,22 +130,3 @@ def generate_map_legend() -> MacroElement:
     macro._template = Template(template)
     return macro
 
-
-def generate_color(category: str) -> str:
-    """
-    Returns a color hex code for a given ship category.
-
-    :param category: str, ship category (vessel type)
-    :return: str, hex code for the color
-    """
-    mappings = {
-        strings.STYPE_UNSPECIFIED: styles.COLOR_APPSILON_1,
-        strings.STYPE_NAVIGATION: styles.COLOR_APPSILON_2,
-        strings.STYPE_FISHING: styles.COLOR_APPSILON_3,
-        strings.STYPE_TUG: styles.COLOR_APPSILON_4,
-        strings.STYPE_PASSENGER: styles.COLOR_APPSILON_5,
-        strings.STYPE_CARGO: styles.COLOR_APPSILON_6,
-        strings.STYPE_TANKER: styles.COLOR_APPSILON_7,
-        strings.STYPE_PLEASURE: styles.COLOR_APPSILON_8,
-    }
-    return mappings[category]

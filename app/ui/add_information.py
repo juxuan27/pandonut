@@ -97,7 +97,7 @@ def make_add_info_table() -> html.Div:
                                         fac.AntdFormItem(
                                             fac.AntdSelect(
                                                 id='form-compete',
-                                                placeholder='请选择组织类型',
+                                                placeholder='请选择该组织是否为竞技性组织（是/否）',
                                                 options=[
                                                     {'label': '是', 'value': '是'},
                                                     {'label': '否', 'value': '否'},

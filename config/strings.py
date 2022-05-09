@@ -10,8 +10,8 @@ INITIAL_CITY = ALL
 
 MAP_POPUP_PROVINCE="所在省份 : "
 MAP_POPUP_CITY="所在城市 : "
-MAP_POPUP_NAME="队伍名称 : "
-MAP_POPUP_TYPE="队伍类别 : "
+MAP_POPUP_NAME="组织名称 : "
+MAP_POPUP_TYPE="组织类别 : "
 MAP_POPUP_CONTACT="联系方式 : "
 MAP_POPUP_OTHERS="其他信息 : "
 MAP_POPUP_TIME="成立时间 : "

@@ -1,4 +1,5 @@
 import feffery_antd_components as fac
+import dash_bootstrap_components as dbc
 import dash
 from dash import dcc
 from dash import html
@@ -22,7 +23,7 @@ for province in dpd_options_province:
     dpd_options_city_list[province]=[strings.ALL]+helpers.get_dropdown_items(
         df=df_school_frisbee_info[df_school_frisbee_info["Province"].isin([province])],
         attribute="City")
-dpd_options_type_list=[strings.ALL]+helpers.get_dropdown_items(df=df_school_frisbee_info, attribute="Type")
+dpd_options_type_list=[strings.ALL]+["青训队伍","学校队伍","女子队伍","混合/公开","其他"]#helpers.get_dropdown_items(df=df_school_frisbee_info, attribute="Type")
 
 # CURRENT DATA
 curr_province=strings.INITIAL_PROVINCE
@@ -46,17 +47,31 @@ app.config["suppress_callback_exceptions"] = True
 server = app.server
 
 # GENERAL LAYOUT
-app.layout = html.Div(
-    [
-        header.make_header(),
-        html.Div(
-            className="wrapper",
-            children=[
-                html.Div(id="main-area", className="main-area"),
-            ],
-        ),
-    ]
+app.layout = dbc.Container([
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content')]
 )
+
+@app.callback(
+    Output('page-content', 'children'),
+    Input('url', 'pathname')
+)
+def render_page_content(pathname):
+    if pathname == '/map':
+        return html.Div(
+                    [
+                        header.make_header(),
+                        html.Div(
+                            className="wrapper",
+                            children=[
+                                html.Div(id="main-area", className="main-area"),
+                            ],
+                        ),
+                    ]
+                )
+    else:
+        return html.Div([html.Iframe(srcDoc=open("app/pages/forbidden_403.html", "r").read())])
+
 
 
 # TAB RENDERER
@@ -102,15 +117,47 @@ def render_tab(tab):
                 children=html.Div(
                     className="about-us-inner",
                     children=[
-                        html.H3(id="text1",children="盘盘圈"),
-                        html.H1(id="text2",children="飞盘地图"),
+                        html.H3(id="text1",children="盘盘圈——飞盘地图"),
                         html.P(id="text3",children='''
-                        盘盘圈飞盘地图是“盘盘圈”的一个实验项目，我们希望 ta 能帮助对飞盘感兴趣的人用最低的信息成本参与到飞盘运动中来，也希望定居地发生变化的盘友，能快速找到本地组织，重建生活的秩序。'''),
+                        🥏 盘圈飞盘地图”是“盘盘圈”的一个实验项目，我们希望 ta 能帮助所有对飞盘感兴趣的人用最低的信息成本参与到飞盘运动中来，也希望居住地发生变化的盘友，能快速找到本地组织，重建生活的秩序。
+                        '''),
                         html.P(id="text3",children='''
-                        如果您发现您的队伍或俱乐部没有出现在这个地图上，抱歉是我们的疏忽，请点击这里联系我们。'''),
+                        🥏 如果您发现您的队伍或俱乐部没有出现在这个地图上，抱歉是我们的疏忽，请点击“信息添加”填写您的队伍/俱乐部信息
+                        '''),
                         html.P(id="text3",children='''
-                        JuJu, 经林, miao2, and Gray, are proud to present the CN Ultimate's Map
+                        🥏 JuJu, Gary, mh, 经林 and miao2, are proud to present the CN Ultimate's Map
+                        '''),
+
+                        html.H3(id="text2",children="更多信息"),
+                        html.P(id="text3",children='''
+                        如果你希望了解更多信息，请前往 GitHub（⬇） 
+                        '''),
+
+                        
+
+                        html.A(
+                            href="https://github.com/juxuan27/pandonut",
+                            children=[
+                                html.Img(src="./assets/img/github-fill.png",
+                                    style={
+                                        "width":"80px",
+                                        "height":"80px",
+                                        "position":"absolute",
+                                        "left":"45%",
+                                    },
+                                title="GitHub",
+                                alt="GitHub 链接")
+                                ],
+                        ),
+                        html.Div(style={"padding":"3em"}),
+                       
+                        html.H3(id="text2",children="支持我们"),
+
+                        html.P(id="text3",children='''
+                        如果你喜欢我们的项目请考虑前往 GitHub（⬆） 支持我们，这些捐赠不会流入我们的口袋，我们会把 ta 们存入创作基金，用来支付网站、服务器、推广等所产生的成本，你也可以在公众号“盘盘圈”的标签栏点击 #财务公示 随时督查。或者去 github 给我们点一个小小的 star🌟，你的帮助可以让我们更健康地生产内容和维护项目，非常感谢。
                         ''')
+
+
                         
                     ]
                 )
@@ -129,7 +176,7 @@ def render_tab(tab):
         Input("port-map-dropdown-type", "value"),
     ],
 )
-def update_port_map_tab(province,city,type):
+def update_map_tab(province,city,type):
     """
     Renders content for the Map tab.
 
@@ -156,10 +203,10 @@ def update_port_map_tab(province,city,type):
                 type_arr=dpd_options_type_list,
                 type_val=curr_type,
             ),
-            tab_frisbeemap.make_tab_port_map_map(
+            tab_frisbeemap.make_tab_map_map(
                 df=df_school_frisbee_info, province=province,city=city,type=type
             ),
-            tab_frisbeemap.make_tab_port_map_table(
+            tab_frisbeemap.make_tab_map_table(
                 df=df_school_frisbee_info, province=province,city=city,type=type
             ),
         ]
@@ -271,5 +318,5 @@ def form_demo_2_callback(nClicks, username, usrcontact,name,type,time,contact,ad
 
 
 if __name__ == "__main__":
-    app.run_server(host='0.0.0.0', port=8050) # production
+    app.run_server(host='0.0.0.0', port=80) # production
     

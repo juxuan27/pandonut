@@ -11,6 +11,7 @@ import pandas as pd
 from dash import html
 from config import strings
 from folium.plugins import MarkerCluster
+from app import helpers
 
 
 from dash import dcc
@@ -89,7 +90,7 @@ def make_tab_frisbee_map_controls(
     )
 
 
-def make_tab_port_map_map(
+def make_tab_map_map(
     df: pd.DataFrame, city: str, province: str,type:str
 ) -> html.Div:
 
@@ -141,37 +142,39 @@ def make_tab_port_map_map(
     geolocation = generate_center_coordinates(df=data)
     zoom_start = generate_zoom_coordinates(df=data)
 
-    port_map = folium.Map(
+    map = folium.Map(
         location=geolocation,
         zoom_start=zoom_start,
         tiles='http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}',
         attr='default'
     )
     
-    marker_cluster = MarkerCluster().add_to(port_map)
+    marker_cluster = MarkerCluster().add_to(map)
     for row in data.itertuples(index=False):
-        folium.Marker(
-            location=(row.Lat, row.Lon),
-            popup=generate_popup(row),
-            icon=folium.Icon(icon='map-signs',prefix='fa',color="green")
-        ).add_to(marker_cluster)
+        if row.Competive=="是":
+            folium.Marker(
+                location=(row.Lat, row.Lon),
+                popup=generate_popup(row),
+                icon=folium.Icon(icon='map-signs',prefix='fa',color="purple")
+            ).add_to(marker_cluster)
+        else:
+            folium.Marker(
+                location=(row.Lat, row.Lon),
+                popup=generate_popup(row),
+                icon=folium.Icon(icon='map-signs',prefix='fa',color="blue")
+            ).add_to(marker_cluster)
 
-        # folium.Circle(
-        #     location=(row.Lat, row.Lon),
-        #     popup=generate_popup(row),
-        #     color="#30DFAF",
-        #     weight=15,
-        #     opacity=0.5,
-        # ).add_to(port_map)
+    map_legend = helpers.generate_map_legend()
+    map.get_root().add_child(map_legend)
 
-    port_map.save("data/index.html")
+    map.save("data/index.html")
     return html.Div(
         className="map-container",
         children=[html.Iframe(srcDoc=open("data/index.html", "r").read())],
     )
 
 
-def make_tab_port_map_table(
+def make_tab_map_table(
     df: pd.DataFrame, city: str, province: str,type:str
 ) -> html.Div:
     """

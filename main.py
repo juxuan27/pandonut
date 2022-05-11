@@ -118,9 +118,10 @@ def render_tab(tab):
                     className="about-us-inner",
                     children=[
                         html.H3(id="text1",children="盘盘圈——飞盘地图"),
-                        html.P(id="text3",children='''
-                        🥏写在前面：这不是一份官方地图，只是盘盘圈的一个项目，不是所有统计的飞盘组织/俱乐部都包含其中，内含一些主观的预筛选，劳烦先看一下这篇推送《关于盘圈全国飞盘地图 2.0 不必知道的事儿》
-                        '''),
+                        html.P(id="text3",children=['''
+                        🥏 写在前面：这不是一份官方地图，只是盘盘圈的一个项目，不是所有统计的飞盘组织/俱乐部都包含其中，内含一些主观的预筛选，劳烦先看一下这篇推送
+                        ''',
+                        html.A(href="https://mp.weixin.qq.com/s/6XccgbUyIlr8bwBvSfW1oA",children='''《关于盘圈全国飞盘地图 2.0 不必知道的事儿》''')]),
                         html.P(id="text3",children='''
                         🥏 “盘圈飞盘地图”是“盘盘圈”的一个实验项目，我们希望 ta 能帮助所有对飞盘感兴趣的人用最低的信息成本参与到飞盘运动中来，也希望居住地发生变化的盘友，能快速找到本地组织，重建生活的秩序。
                         '''),

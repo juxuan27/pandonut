@@ -4,6 +4,7 @@
 - 2021.08.03 [盘盘圈全国飞盘地图 v1.0 发布](https://mp.weixin.qq.com/s/dP6URIQTDC2E52wZj9CsAw)
 - 2022.05.09 [盘盘圈全国飞盘地图 v2.0 发布](http://www.pandonut.com/map)
 
+更加详细的数据更新记录请前往[UPDATE.md](UPDATE.md)
 ## 盘盘圈
 
 Hey～你好！“盘盘圈”（Pandonut）是由来自，来自同济 TJUF 极限飞盘队的```经林```、```美惠```、```juju```、```黑黑```，来自华南理工大学的```桂宇```和来自宁波 UFO 的 ```miao2```共同运营的独立极限飞盘内容平台。

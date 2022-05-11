@@ -793,8 +793,19 @@ table tbody tr:first-child {
     font-size: 1em;
     line-height: 1.75;
     font-weight: 400;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 }
+
+.add-infor-container #add-info-explain-update{
+    color: #cfcfcf;
+    font-family: 'Microsoft YaHei';
+    font-size: 1em;
+    line-height: 1.75;
+    font-weight: 400;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
 .add-infor-container #add-info-head{
     padding-top: 1em;
     color: #b5b5c5;

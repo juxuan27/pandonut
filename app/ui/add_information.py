@@ -11,6 +11,9 @@ def make_add_info_table() -> html.Div:
                 html.H1(id="add-info-title",children="信息添加"),
                 html.P(id="add-info-explain",children='''
                         首先，我们对没能收集到您所在飞盘组织的信息表示诚挚歉意，同时也非常感谢您对我们的理解和支持！\n 请在下面的表格中填写相关信息，我们会以最快的速度将您的信息更新到地图上。❤️'''),
+                html.P(id="add-info-explain-update",children=['''
+                        如果您想查看更新记录，请点击''',
+                        html.A(href="https://github.com/juxuan27/pandonut/blob/main/UPDATE.md",children="这里")]),
                 html.Div(
                     className="add-info-form-container",
                     children=[

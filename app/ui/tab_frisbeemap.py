@@ -115,7 +115,7 @@ def make_tab_map_map(
     def generate_center_coordinates(df: pd.DataFrame) -> list:
         if len(df) > 0:
             return [df["Lat"].median(), df["Lon"].median()]
-        return [-1, -1]
+        return [39.90960456049752, 116.3972282409668]
 
     def generate_zoom_coordinates(df: pd.DataFrame) -> int:
         if len(df) > 1:

@@ -10,4 +10,5 @@
 /data/frisbee_addinfo.csv
 .vscode
 *__pycache__
+
 *.out
